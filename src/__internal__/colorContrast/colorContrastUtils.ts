@@ -1,4 +1,4 @@
-export type HexCode = `#${string}`;
+import { colors, ColorVariant, HexCode } from "../colorValues";
 
 export const AcceptableContrastRatios = {
   LARGE_TEXT: 3,
@@ -78,4 +78,32 @@ export const isContrastRatioHighEnough = (
   const ratio = getContrastRatio(colorOne, colorTwo);
 
   return ratio >= minimumContrastRatio;
+};
+
+export const getHex = (colorName: ColorVariant): HexCode => {
+  return colors[colorName];
+};
+
+const defaultForegroundColors: ColorVariant[] = ["gray-800", "black", "white"];
+
+export const getContrastColor = (
+  backgroundColor: ColorVariant,
+  desiredForegroundColor: ColorVariant | ColorVariant[],
+  minimumContrastRatio: ContrastRatios
+): ColorVariant => {
+  const bgHex = getHex(backgroundColor);
+
+  const colors: ColorVariant[] = Array.isArray(desiredForegroundColor)
+    ? [...desiredForegroundColor, ...defaultForegroundColors]
+    : [desiredForegroundColor, ...defaultForegroundColors];
+
+  for (let i = 0; i < colors.length; i++) {
+    const color = colors[i];
+    const fgHex = getHex(color);
+    if (isContrastRatioHighEnough(bgHex, fgHex, minimumContrastRatio)) {
+      return color;
+    }
+  }
+
+  return "black";
 };

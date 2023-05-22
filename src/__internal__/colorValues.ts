@@ -1,3 +1,7 @@
+export type HexCode = `#${string}`;
+
+type HexMap = Record<string, HexCode>;
+
 const grayscale = {
   "gray-100": "#f3f4f6",
   "gray-200": "#e5e7eb",
@@ -71,8 +75,8 @@ const blue = {
 } as const;
 
 export const colors = {
-  primary: "",
-  secondary: "",
+  primary: "#22c55e",
+  secondary: "#3b82f6",
   black: "#000000",
   white: "#ffffff",
   ...grayscale,

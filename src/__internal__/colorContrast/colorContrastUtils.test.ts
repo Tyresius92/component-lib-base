@@ -1,9 +1,9 @@
+import { HexCode } from "../colorValues";
 import {
   convertHexToRgb,
   getColorChannelChroma,
   getContrastRatio,
   getLuminance,
-  HexCode,
   isContrastRatioHighEnough,
   AcceptableContrastRatios,
 } from "./colorContrastUtils";

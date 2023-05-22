@@ -1,0 +1,52 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import * as BoxStories from "./Box.stories";
+
+<Meta of={BoxStories} />
+
+# Box
+
+The Box component is a generic layout component, intended to be an easy way to apply margin and padding.
+
+You can think of the Box component like a `div` with super powers.
+
+## Usage guidelines
+
+### When to use it
+
+This should be your go to component when you need any kind of container. It is one of the fundamental building blocks of our system.
+
+### When not to use it
+
+If you need Flexbox capabilities, please use the [Flex](../Flex) component instead.
+
+If you need to align items to a grid, please use the [Grid](../Grid) component.
+
+## Usage
+
+### Basic usage
+
+In its simplest form, the Box is just a container:
+
+<Canvas of={BoxStories.Basic} />
+
+### Margin and Padding
+
+From there, you can add margin and padding around the Box's children:
+
+<Canvas of={BoxStories.WithMarginAndPadding} />
+
+The allowed values for margin and padding are integers which increment by one. These map to our standard design tokens under the hood.
+
+### Margin and Padding on particular sides
+
+You can apply different values to each side of the Box by using any of the `marginTop`, `marginRight`, `marginBottom`, or `marginLeft` props (with similar naming conventions for padding).
+
+<Canvas of={BoxStories.SpacingOnIndividualSides} />
+
+Additionally, you can apply spacing to the top and bottom with `marginY` and to the left and right with `marginX`.
+
+<Canvas of={BoxStories.WithXYShorthands} />
+
+### Shorthand props
+
+Each margin and padding prop also comes with a related shorthand. For instance, instead of passing `marginTop`, you can pass `mt`.

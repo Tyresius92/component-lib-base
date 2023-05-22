@@ -1,0 +1,22 @@
+import { Meta, Canvas } from "@storybook/blocks";
+import * as ButtonStories from "./Button.stories";
+
+<Meta of={ButtonStories} />
+
+# Button
+
+Buttons allow users to take actions, and make choices, with a single tap.
+
+## Usage guidelines
+
+Buttons are used for a wide variety of reasons: to submit a form, open a modal, or to generally take action on a page.
+
+Buttons should NOT be used for navigation. Clicking a link should generally not change the user's browser location.
+
+## Usage
+
+### Basic usage
+
+Import the button and use it:
+
+<Canvas of={ButtonStories.Basic} />

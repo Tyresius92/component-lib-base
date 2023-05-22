@@ -81,7 +81,7 @@ export const StyledBox = styled.div<BoxProps>`
     `padding-inline-start: var(--space-${props.pl ?? props.paddingLeft});`}
   ${(props) =>
     (props.pr ?? props.paddingRight) &&
-    `padding-inline-end: var(--space-${props.pr ?? props.marginRight});`}
+    `padding-inline-end: var(--space-${props.pr ?? props.paddingRight});`}
 `;
 
 export const Box = (props: BoxProps): JSX.Element => <StyledBox {...props} />;
